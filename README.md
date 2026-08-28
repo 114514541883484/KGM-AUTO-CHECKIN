@@ -37,6 +37,8 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到，每天领取总计 `两�
 > 
 > **在仓库`Settings`设置`PAT Secret`，再执行登录 确保`Secrets and variables` - `Actions`中成功写入`USERINFO`再执行签到**
 
+$${\color{red}避免将PAT秘钥复制于Windows记事本中，可能存在的自动修改会导致所有下划线“_”消失导致秘钥出错}$$
+
 <details>
 
 <summary>⚠️部署教程(点击展开)⚠️</summary>
@@ -69,6 +71,8 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到，每天领取总计 `两�
    运行 Actions `二维码登录`，点击 Run → 在运行摘要页面（Summary）查看二维码图片，使用酷狗音乐 APP 扫码并确认登录即可。
 
    3.2 手机号登录
+   
+   $${\color{red}其中的Secret即上文填写PAT秘钥处}$$
 
    添加手机号到 Secret `PHONE`，运行 Actions `手机号登录`，操作步骤选择「发送验证码」获取验证码，把验证码添加到 Secret `CODE`；再次运行 Actions `手机号登录`，操作步骤选择「登录」即可。
 
