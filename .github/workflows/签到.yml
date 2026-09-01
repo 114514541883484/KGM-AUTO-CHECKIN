@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: 检出仓库
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: 随机延时（仅定时触发，最高 20 min）
         if: github.event_name == 'schedule'
@@ -23,23 +23,13 @@ jobs:
         shell: pwsh
 
       - name: 创建 Node 环境
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: 'npm'
           cache-dependency-path: ./api/package-lock.json
 
-      - name: 缓存依赖
-        id: cache-npm
-        uses: actions/cache@v5
-        with:
-          path: ./api/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./api/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: 安装依赖
-        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
         run: npm run install
 
       - name: 执行签到
