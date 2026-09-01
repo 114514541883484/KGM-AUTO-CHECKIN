@@ -71,10 +71,10 @@ $${\color{red}避免将PAT秘钥复制于Windows记事本中，可能存在的�
    运行 Actions `二维码登录`，点击 Run → 在运行摘要页面（Summary）查看二维码图片，使用酷狗音乐 APP 扫码并确认登录即可。
 
    3.2 手机号登录
-   
-   $${\color{red}其中的Secret即上文填写PAT秘钥处}$$
 
    添加手机号到 Secret `PHONE`，运行 Actions `手机号登录`，操作步骤选择「发送验证码」获取验证码，把验证码添加到 Secret `CODE`；再次运行 Actions `手机号登录`，操作步骤选择「登录」即可。
+
+   ⬆️ $${\color{red}与上文给仓库添加PAT秘钥同一位置}$$ ⬆️
 
 1. 启用 Actions `签到`，每天北京时间 01:10 自动签到（可在 `签到.yml` 中设置 cron）。启用 Actions `仓库保活` 以保证签到可以长期执行。
 
