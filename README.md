@@ -37,7 +37,7 @@ GitHub Actions 实现 `酷狗概念VIP` 自动签到，每天领取总计 `两�
 > 
 > **在仓库`Settings`设置`PAT Secret`，再执行登录 确保`Secrets and variables` - `Actions`中成功写入`USERINFO`再执行签到**
 
-$${\color{red}避免将PAT秘钥复制于Windows记事本中，可能存在的自动修改会导致秘钥中所有下划线消失导致秘钥出错}$$
+$${\color{red}避免将PAT秘钥复制于Windows记事本中，可能存在的字号字体问题会导致秘钥中所有下划线消失导致秘钥出错}$$
 
 <details>
 
