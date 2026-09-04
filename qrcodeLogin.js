@@ -160,7 +160,7 @@ async function genMode() {
   }
 
   try {
-    const qrItems = [] // 收集所有二维码信息用于生成聚合 HTML
+    const qrItems = []
 
     for (let n = 0; n < number; n++) {
       const result = await send(`/login/qr/key?timestrap=${Date.now()}`, "GET", {})
@@ -177,7 +177,6 @@ async function genMode() {
       }
     }
 
-    // ── 生成自包含 HTML 登录页（核心展示渠道！）──
     if (qrItems.length > 0) {
       const htmlContent = generateHtmlPage(qrItems)
       fs.writeFileSync(`${QR_DIR}/login.html`, htmlContent, 'utf8')
@@ -233,7 +232,7 @@ async function waitMode() {
   const APPEND_USER = process.env.APPEND_USER
   const userinfo = (USERINFO && APPEND_USER == "是") ? JSON.parse(USERINFO) : []
 
-  const results = [] // 收集每个账号的扫码结果用于 Summary
+  const results = []
 
   try {
     for (let n = 0; n < number; n++) {
@@ -286,7 +285,6 @@ async function waitMode() {
     }
     saveUserinfo(userinfo)
 
-    // 写入扫码结果到 Summary
     const resultLines = results.map(r => `- 账号 ${r.index}/${number}：${r.status}`).join('\n')
     appendSummary(`### 扫码结果\n\n${resultLines}`)
   } finally {

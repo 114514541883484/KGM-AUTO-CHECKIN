@@ -25,7 +25,6 @@ async function login() {
   }
 
   try {
-    // 手机号登录请求
     const result = await send(`/login/cellphone?mobile=${phone}&code=${code}`, "GET", {})
     if (result.status === 1) {
       printGreen("登录成功！")

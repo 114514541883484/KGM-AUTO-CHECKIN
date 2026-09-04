@@ -7,7 +7,6 @@ import { close_api, delay, send, startService, waitForApi } from "./utils/utils.
 async function main() {
 
   const USERINFO = process.env.USERINFO
-  // 刷新token
   let needRefresh = false
   if (!USERINFO) {
     throw new Error("未配置")
@@ -38,7 +37,6 @@ async function main() {
   let hasError = false
 
   try {
-    // 开始签到
     for (const user of userinfo) {
       // 单账号异常隔离：任何一个账号的请求/解析出错，只记录该账号失败，
       // 不影响其余账号继续执行，也保证后续通知与 secret 刷新一定能触发。
@@ -103,7 +101,6 @@ async function main() {
         let claimCount = 0
         let claimTotal = 0
         for (let i = 1; i <= 8; i++) {
-          // ad获取vip
           const ad = await send(`/youth/vip?timestrap=${Date.now()}`, "GET", headers)
           claimTotal = i
           if (ad.status === 1) {
