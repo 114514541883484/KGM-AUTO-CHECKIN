@@ -4,7 +4,7 @@ function hasSecretWriteToken() {
   return Boolean(process.env.PAT || process.env.GH_TOKEN);
 }
 
-function setRepoSecret(name, value) {
+function setRepoSecret(name, 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) {
   const repository = process.env.GITHUB_REPOSITORY;
   const token = process.env.GH_TOKEN || process.env.PAT;
 
@@ -16,7 +16,7 @@ function setRepoSecret(name, value) {
   }
 
   execFileSync("gh", ["secret", "set", name, "--repo", repository], {
-    input: value,
+    input: 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,
     encoding: "utf8",
     env: {
       ...process.env,
